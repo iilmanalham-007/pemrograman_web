@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Latihan6</title>
+</head>
+<body>
+        <h2>Kalkulator Sederhana</h2>
+
+        <input  type="number" id="angka1">
+        <br><br>
+        <input  type="number" id="angka2">
+        <br><br>
+
+        <button onclick="tambah()">+</button>
+        <button onclick="kurang()">-</button>
+        <button onclick="kali()">×</button>
+        <button onclick="bagi()">÷</button>
+        
+         <p>Hasil: <span id="hasil"></span></p>
+   
+<script>
+        function tambah() {
+            var a = document.getElementById("angka1").value;
+            var b = document.getElementById("angka2").value;
+
+            var hasil = Number(a) + Number(b);
+
+            document.getElementById("hasil").innerHTML = hasil;
+        }
+         function kurang() {
+            var a = document.getElementById("angka1").value;
+            var b = document.getElementById("angka2").value;
+
+            var hasil = Number(a) - Number(b);
+
+            document.getElementById("hasil").innerHTML = hasil;
+        }
+         function kali() {
+            var a = document.getElementById("angka1").value;
+            var b = document.getElementById("angka2").value;
+
+            var hasil = Number(a) * Number(b);
+
+            document.getElementById("hasil").innerHTML = hasil;
+        }
+         function bagi() {
+            var a = document.getElementById("angka1").value;
+            var b = document.getElementById("angka2").value;
+
+            var hasil = Number(a) / Number(b);
+ 
+            document.getElementById("hasil").innerHTML = hasil;
+        }
+    </script>
+   
+</body>
+</html>

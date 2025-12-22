@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>latihan7</title>
+</head>
+<body>
+
+    <h2>Konversi Mata Uang</h2>
+
+    <label id="labelInput">Dolar</label>
+    <input  type="number" id="angka">
+    <br><br>
+
+    <button onclick="konversi()">Konversi</button>
+    <button onclick="tukar()">Tukar</button>
+
+    <p><span id="labelHasil">Rupiah</span> <span id="hasil">0</span></p>
+<script>
+    var kurs = 15000;       
+    var mode = "USD_IDR";   
+
+    function konversi() {
+        var nilai = document.getElementById("angka").value;
+        var hasil;
+
+        if (mode === "USD_IDR") {
+            hasil = Number(nilai) * kurs;
+            document.getElementById("hasil").innerHTML = hasil;
+        } else {
+            hasil = Number(nilai) / kurs;
+            document.getElementById("hasil").innerHTML = hasil;
+
+        }
+    }
+
+    function tukar() {
+        var labelInput = document.getElementById("labelInput");
+        var labelHasil = document.getElementById("labelHasil");
+
+        document.getElementById("angka").value = "";
+        document.getElementById("hasil").innerHTML = "0";
+
+        if (mode === "USD_IDR") {
+            mode = "IDR_USD";
+            labelInput.innerHTML = "Rupiah";
+            labelHasil.innerHTML = "Dolar";
+        } else {
+            mode = "USD_IDR";
+            labelInput.innerHTML = "Dolar";
+            labelHasil.innerHTML = "Rupiah";
+        }
+    }
+</script>
+
+</body>
+</html>

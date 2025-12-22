@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>latihan8</title>
+</head>
+<body>
+
+    <h2>Konversi Suhu</h2>
+
+    <label>Celcius</label>
+    <input type="number" id="celcius" oninput="konversiSuhu()">
+    <br><br>
+
+    <label>Fahrenheit</label>
+    <b><span id="hasil"></span></b>
+
+<script>
+    function konversiSuhu() {
+        var c = document.getElementById("celcius").value;
+        var hasil = document.getElementById("hasil");
+
+        if (c === "") {
+            hasil.innerHTML = "";
+        } else {
+            var f = (Number(c) * 9 / 5) + 32;
+            hasil.innerHTML = f;
+        }
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>latihan3</title>
+</head>
+<body>
+
+    <button id="paraghraf1"
+        onmouseover="fungsi1()"
+        onmouseout="hapus1()">
+        paraghraf1
+    </button>
+
+    <button id="paraghraf2"
+        onmouseover="fungsi2()"
+        onmouseout="hapus2()">
+        paraghraf2
+    </button>
+
+    <p id="hasil1"></p>
+    <p id="hasil2"></p>
+
+    <script>
+        function fungsi1() {
+            document.getElementById("hasil1").textContent = "ini paragraf 1";
+        }
+
+        function fungsi2() {
+            document.getElementById("hasil2").textContent = "ini paragraf2";
+        }
+
+        function hapus1() {
+            document.getElementById("hasil1").textContent = "";
+        }
+
+        function hapus2() {
+            document.getElementById("hasil2").textContent = "";
+        }
+    </script>
+
+</body>
+</html>
