@@ -1,72 +1,51 @@
-from utils import get_label, get_bobot, hitung_total_sks, hitung_total_nilai, hitung_ips
-from cli import tampilkan_menu, bersihkan_layar, kembali_ke_menu
+import sys
+from utils import *
+from cli import *
 
 def main():
-    data_kuliah = [] 
-
     while True:
-        bersihkan_layar()
+        clear_screen()
         tampilkan_menu()
         pilihan = input("\nPilihan: ")
 
         if pilihan == '1':
             n = float(input("Nilai Mahasiswa: "))
-            print(f"Label: {get_label(n)}")
-            kembali_ke_menu()
+            print(f"Label: {konversi_nilai_ke_label(n)}")
+            jeda_dan_kembali()
 
         elif pilihan == '2':
             l = input("Label Nilai Mahasiswa: ")
-            print(f"Bobot: {get_bobot(l)}")
-            kembali_ke_menu()
+            print(f"Bobot: {konversi_label_ke_bobot(l)}")
+            jeda_dan_kembali()
 
-        elif pilihan == '3':
-            total_sks = hitung_total_sks()
-            kembali_ke_menu()
-
-        elif pilihan == "4":
-            jumlah = int(input("\nJumlah Data: "))
-            sks_list = []
-            nilai_list = []
-
-            print("\n--------- input sks ----------")
-            for i in range(jumlah):
-                sks_list.append(int(input(f"SKS {i+1}: ")))
-
-            print("\n--------- input Nilai Mahasiswa ----------")
-            for i in range(jumlah):
-                nilai_list.append(float(input(f"Nilai {i+1}: ")))
-
-                total_nilai = hitung_total_nilai(sks_list, nilai_list)
-            print("\nTotal Nilai:", total_nilai)
-            kembali_ke_menu()
-
-        elif pilihan == '5':
-            jumlah = int(input("\nJumlah Data: "))
-            sks_list = []
-            nilai_list = []
-
+        elif pilihan in ['3', '4', '5']:
+            jml = int(input("Jumlah Data: "))
             print("--------- input sks ---------")
-            for i in range(1, jumlah + 1):
-                sks_list.append(int(input(f"SKS {i}: ")))
-
-            print("\n--------- input Nilai Mahasiswa ---------")
-            for i in range(1, jumlah + 1):
-                nilai_list.append(int(input(f"Nilai {i}: ")))
-
-                total_nilai = hitung_total_nilai(sks_list, nilai_list)
-                total_sks = sum(sks_list)
-
-                ips = hitung_ips(total_nilai, total_sks)
-
-            print("\nIPS:", round(ips, 2))
-            kembali_ke_menu()
+            list_sks = [int(input(f"SKS {i+1}: ")) for i in range(jml)]
+            t_sks = hitung_total_sks(list_sks)
             
+            if pilihan == '3':
+                print(f"\nTotal SKS: {t_sks}")
+            else:
+                print("\n--------- input Nilai Mahasiswa ---------")
+                list_nilai = [float(input(f"Nilai {i+1}: ")) for i in range(jml)]
+                t_nilai = hitung_total_nilai(list_sks, list_nilai)
+                
+                if pilihan == '4':
+                    print(f"\nTotal Nilai: {t_nilai}")
+                elif pilihan == '5':
+                    ips = hitung_ips(t_nilai, t_sks)
+                    print(f"\nIPS: {ips:.2f}")
+            jeda_dan_kembali()
+
         elif pilihan == '6':
-            print("Program Selesai.")
-            break
+            print("Keluar dari main.py...")
+            print("Sekarang masukkan perintah 'python main1.py' di terminal.")
+            sys.exit()
+        
         else:
-            print("Pilihan tidak ada!")
-            kembali_ke_menu()
+            print("\nPilihan tidak valid!")
+            jeda_dan_kembali()
 
 if __name__ == "__main__":
     main()

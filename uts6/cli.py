@@ -1,8 +1,3 @@
-import os
-
-def bersihkan_layar():
-    os.system('cls' if os.name == 'nt' else 'clear')
-
 def tampilkan_menu():
     print("--------- menu ---------")
     print("1. konversi nilai ke label")
@@ -12,5 +7,5 @@ def tampilkan_menu():
     print("5. hitung IPS")
     print("6. exit")
 
-def kembali_ke_menu():
-    input("\nKlik Enter untuk kembali ke tampilan awal...")
+def jeda_dan_kembali():
+    input("\nKlik Enter untuk kembali ke menu...")
