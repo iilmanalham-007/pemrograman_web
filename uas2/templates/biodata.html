@@ -1,0 +1,29 @@
+<h2>BIODATA</h2>
+
+<form method="post">
+    <label>Nama</label><br>
+    <input type="text" name="nama" required><br><br>
+
+    <label>NIM</label><br>
+    <input type="text" name="nim" required><br><br>
+
+    <label>Prodi</label><br>
+    <input type="text" name="prodi" required><br><br>
+
+    <button type="submit">Simpan Biodata</button>
+</form>
+
+<hr>
+
+<h3>Biodata Tersimpan</h3>
+
+{% if biodata %}
+    <p>Nama  : {{ biodata.nama }}</p>
+    <p>NIM   : {{ biodata.nim }}</p>
+    <p>Prodi : {{ biodata.prodi }}</p>
+{% else %}
+    <p>Biodata belum diinput</p>
+{% endif %}
+
+<br>
+<a href="/">⬅ Kembali ke Menu</a>

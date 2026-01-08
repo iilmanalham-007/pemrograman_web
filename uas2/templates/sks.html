@@ -1,0 +1,9 @@
+<h2>Input SKS</h2>
+<form method="post">
+  {% for i in range(3) %}
+    SKS {{ i+1 }}:
+    <input type="number" name="sks{{ i }}"><br>
+  {% endfor %}
+  <button type="submit">Simpan</button>
+</form>
+<a href="/">⬅ Kembali ke Menu</a>
